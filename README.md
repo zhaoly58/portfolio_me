@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+A Flutter app howing a developer personal profile/portfolio. 
+
+This is for learning and practicing usage.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
