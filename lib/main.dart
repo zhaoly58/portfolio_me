@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_me/about_screen.dart';
 import 'package:portfolio_me/service_screen.dart';
 
 void main() {
@@ -34,6 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const ServiceScreen(),
+      
     );
   }
 }

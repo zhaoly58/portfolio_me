@@ -68,7 +68,7 @@ class ServiceScreen extends StatelessWidget {
                       Image.asset("assets/icon/webPad.png", scale: 7),
                       SizedBox(height: 20),
                       Text(
-                        "Website / App Design UX / UI Design",
+                        "Website / App Design UX / UI Design",
                         style: TextStyle(
                           fontSize: 25,
                           color: Colors.white,
