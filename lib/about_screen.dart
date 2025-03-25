@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:portfolio_me/customWidget/percent_indicator.dart";
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -186,102 +187,42 @@ class AboutScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
 
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "User Experience Design - UI/UX",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    SizedBox(height: 10),
-                    Stack(
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: 20,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
+                
+                CustomPercentIndicator(title: "User Experience Design - UI/UX", indicatorWidth: 350,),
+                CustomPercentIndicator(title: "Web&User Interface Design", indicatorWidth: 300,),
+                CustomPercentIndicator(title: "Interaction Design - Animation", indicatorWidth: 270,),
+                
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Text(
+                //       "Interaction Design - Animation",
+                //       style: TextStyle(color: Colors.black),
+                //     ),
+                //     SizedBox(height: 10),
+                //     Stack(
+                //       children: [
+                //         Container(
+                //           width: double.infinity,
+                //           height: 20,
+                //           decoration: BoxDecoration(
+                //             color: Colors.grey.shade300,
+                //             borderRadius: BorderRadius.circular(20),
+                //           ),
+                //         ),
 
-                        Container(
-                          width: 350,
-                          height: 20,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade800,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Web&User Interface Design",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    SizedBox(height: 10),
-                    Stack(
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: 20,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-
-                        Container(
-                          width: 320,
-                          height: 20,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade800,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Interaction Design - Animation",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    SizedBox(height: 10),
-                    Stack(
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: 20,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-
-                        Container(
-                          width: 280,
-                          height: 20,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade800,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                //         Container(
+                //           width: 280,
+                //           height: 20,
+                //           decoration: BoxDecoration(
+                //             color: Colors.blue.shade800,
+                //             borderRadius: BorderRadius.circular(20),
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ],
+                // ),
                 SizedBox(height: 50),
               ],
             ),
