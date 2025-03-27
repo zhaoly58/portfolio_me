@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_me/milestones.dart';
+import 'package:portfolio_me/milestones_screen.dart';
+import 'package:portfolio_me/projects_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Milestones(),
+      home: ProjectsScreen(),
       
     );
   }
