@@ -7,7 +7,13 @@ class ServiceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SERVICES", style: TextStyle(color: Color(0xFF0078FF), fontWeight: FontWeight.bold)),
+        title: Text(
+          "SERVICES",
+          style: TextStyle(
+            color: Color(0xFF0078FF),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
       ),
       body: Padding(
@@ -28,18 +34,20 @@ class ServiceScreen extends StatelessWidget {
                     children: [
                       TextSpan(text: "Exploring My"),
                       TextSpan(text: "\nDesign "),
-                      TextSpan(text: "Skills", style: TextStyle(color: Color(0xFF0078FF))),
-                      
+                      TextSpan(
+                        text: "Skills",
+                        style: TextStyle(color: Color(0xFF0078FF)),
+                      ),
                     ],
                   ),
                 ),
-                Text("We transform your ideas into a distinctive web project that both inspires you and captivates your customers",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
+                Text(
+                  "We transform your ideas into a distinctive web project that both inspires you and captivates your customers",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 25),
-                Image.asset("assets/icon/navArrow.png", scale: 10,)
-                
+                Image.asset("assets/icon/navArrow.png", scale: 10),
               ],
             ),
             SizedBox(height: 30),
