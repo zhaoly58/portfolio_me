@@ -47,9 +47,23 @@ class ServiceScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(height: 25),
-                Image.asset("assets/icon/navArrow.png", scale: 10),
+                //Image.asset("assets/icon/navArrow.png", scale: 10),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.arrow_back_sharp),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.arrow_forward_sharp),
+                ),
+              ],
+            ),
+
             SizedBox(height: 30),
             GestureDetector(
               onTap: () {

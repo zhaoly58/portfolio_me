@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_me/projects_screen.dart';
 import 'package:portfolio_me/service_screen.dart';
 
 void main() {
