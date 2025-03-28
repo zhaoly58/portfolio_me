@@ -12,6 +12,29 @@ class _TestimonialsScreenState extends State<TestimonialsScreen> {
   Widget build(BuildContext context) {
     final PageController controller = PageController(initialPage: 0);
 
+    final List<Map<String, dynamic>> reviewContent = [
+      {
+        "reviewBody": "1",
+        "name": "Savannah Nguyen",
+        "workTitle": "President of Sales",
+      },
+      {
+        "reviewBody": "2",
+        "name": "Jenny Wilson",
+        "workTitle": "Medical Assistant",
+      },
+      {
+        "reviewBody": "3",
+        "name": "Esther Howard",
+        "workTitle": "Nursing Assistant",
+      },
+      {
+        "reviewBody": "4",
+        "name": "Savannah Nguyen",
+        "workTitle": "Marketing Coordinator",
+      },
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
