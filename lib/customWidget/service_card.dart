@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ServiceCard extends StatelessWidget {
-  const ServiceCard({super.key});
+  final String? title;
+  final String? subTitle;
+
+  const ServiceCard({super.key, this.title, this.subTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +14,9 @@ class ServiceCard extends StatelessWidget {
       },
       child: Container(
         width: double.infinity,
-        height: 366,
+        //height: 366,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(15),
           color: Color(0xFF0078FF),
         ),
         child: Padding(
@@ -25,7 +28,7 @@ class ServiceCard extends StatelessWidget {
               Image.asset("assets/icon/webPad.png", scale: 7),
               SizedBox(height: 20),
               Text(
-                "Website / App Design UX / UI Design",
+                "$title",
                 style: TextStyle(
                   fontSize: 25,
                   color: Colors.white,
@@ -33,8 +36,8 @@ class ServiceCard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10),
-              const Text(
-                "Creating Engaging Digital Experiences for Websites and Apps through UX/UI Design",
+              Text(
+                "$subTitle",
                 style: TextStyle(color: Colors.white, fontSize: 19),
               ),
               const SizedBox(height: 15),
