@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-A Flutter app howing a developer personal profile/portfolio. 
+A Flutter app howing a developer personal profile/portfolio.
 
 This is for learning and practicing usage.
 

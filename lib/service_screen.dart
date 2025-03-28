@@ -1,18 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_me/customWidget/service_card.dart';
 
-class ServiceScreen extends StatelessWidget {
+class ServiceScreen extends StatefulWidget {
   const ServiceScreen({super.key});
 
   @override
+  State<ServiceScreen> createState() => _ServiceScreenState();
+}
+
+class _ServiceScreenState extends State<ServiceScreen> {
+  @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> serviceContent = [
+      {
+        "title": "1. Website / App Design UX / UI Design",
+        "subTitle":
+            "Creating Engaging Digital Experiences for Websites and Apps through UX/UI Design",
+      },
+      {
+        "title": "2. Strategic Marketing and Creative Content",
+        "subTitle":
+            "Elevating Brands and Engagement through Strategic Marketing and Creative Content",
+      },
+      {
+        "title": "3. Multivendor eCommerce Website Solutions",
+        "subTitle": "Multivendor eCommerce Website Solutions",
+      },
+    ];
+
+    final PageController controller = PageController(initialPage: 0);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("SERVICES", style: TextStyle(color: Color(0xFF0078FF), fontWeight: FontWeight.bold)),
+        title: Text(
+          "SERVICES",
+          style: TextStyle(
+            color: Color(0xFF0078FF),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
       ),
       body: Padding(
         padding: EdgeInsets.all(15),
-
         child: Column(
           children: [
             Column(
@@ -28,73 +58,60 @@ class ServiceScreen extends StatelessWidget {
                     children: [
                       TextSpan(text: "Exploring My"),
                       TextSpan(text: "\nDesign "),
-                      TextSpan(text: "Skills", style: TextStyle(color: Color(0xFF0078FF))),
-                      
+                      TextSpan(
+                        text: "Skills",
+                        style: TextStyle(color: Color(0xFF0078FF)),
+                      ),
                     ],
                   ),
                 ),
-                Text("We transform your ideas into a distinctive web project that both inspires you and captivates your customers",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
+                Text(
+                  "We transform your ideas into a distinctive web project that both inspires you and captivates your customers",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18, letterSpacing: 1.5),
                 ),
                 SizedBox(height: 25),
-                Image.asset("assets/icon/navArrow.png", scale: 10,)
-                
+                //Image.asset("assets/icon/navArrow.png", scale: 10),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    controller.previousPage(
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.linear,
+                    );
+                  },
+                  icon: Icon(Icons.arrow_back_sharp),
+                ),
+                IconButton(
+                  onPressed: () {
+                    controller.nextPage(
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.linear,
+                    );
+                  },
+                  icon: Icon(Icons.arrow_forward_sharp),
+                ),
+              ],
+            ),
+
             SizedBox(height: 30),
-            GestureDetector(
-              onTap: () {
-                print("clicked");
-              },
-              child: Container(
-                width: double.infinity,
-                height: 366,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFF0078FF),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: 30,
-                    right: 9,
-                    top: 30,
-                    bottom: 30,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // SizedBox(height: 10),
-                      Image.asset("assets/icon/webPad.png", scale: 7),
-                      SizedBox(height: 20),
-                      Text(
-                        "Website / App Design UX / UI Design",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      const Text(
-                        "Creating Engaging Digital Experiences for Websites and Apps through UX/UI Design",
-                        style: TextStyle(color: Colors.white, fontSize: 19),
-                      ),
-                      const SizedBox(height: 15),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Learn more",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
-                          ),
-                          const SizedBox(width: 8),
-                          Image.asset("assets/icon/arrowRight.png", scale: 30),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+
+            SizedBox(
+              height: 366,
+              child: PageView.builder(
+                itemCount: serviceContent.length,
+                controller: controller,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return ServiceCard(
+                    title: "${serviceContent[index]["title"]}",
+                    subTitle: "${serviceContent[index]["subTitle"]}",
+                  );
+                },
               ),
             ),
           ],
