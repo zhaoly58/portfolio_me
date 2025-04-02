@@ -32,7 +32,16 @@ class ReviewCard extends StatelessWidget {
             children: [
               SizedBox(height: 15),
 
-              Image.asset("assets/photo/$photo", scale: 3),
+              ClipOval(
+                child: Image.asset(
+                  "assets/photo/$photo",
+                  fit: BoxFit.cover,
+                  width: 150,
+                  height: 150,
+                ),
+              ),
+
+              //Image.asset("assets/photo/$photo", scale: 3),
               SizedBox(height: 15),
               Image.asset("assets/icon/five_stars.png", scale: 3),
               SizedBox(height: 15),

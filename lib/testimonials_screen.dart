@@ -23,19 +23,22 @@ class _TestimonialsScreenState extends State<TestimonialsScreen> {
       },
       {
         "photo": "people2.png",
-        "reviewBody": "2",
+        "reviewBody":
+            "Lorem ipsum dolor sit amet consectetur. Tortor odio purus morbi amet. Donec bibendum et cursus felis sollicitudin vulputate cursus odio. Aliquam cursus eu in aliquam nisl",
         "name": "Jenny Wilson",
         "workTitle": "Medical Assistant",
       },
       {
         "photo": "people3.png",
-        "reviewBody": "3",
+        "reviewBody":
+            "Lorem ipsum dolor sit amet consectetur. Purus commodo id id ut ultrices aliquam. Sit aliquet leo et lorem dignissim semper donec risus tempor. Varius ultricies dolor ultricies",
         "name": "Esther Howard",
         "workTitle": "Nursing Assistant",
       },
       {
         "photo": "people4.png",
-        "reviewBody": "4",
+        "reviewBody":
+            "Lorem ipsum dolor sit amet consectetur. Eu velit tellus pellentesque tincidunt arcu convallis bibendum. Orci diam leo non molestie dictum orci pulvinar massa",
         "name": "Cameron Williamson",
         "workTitle": "Marketing Coordinator",
       },
