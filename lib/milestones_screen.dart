@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_me/customWidget/achievement_card.dart';
 
-class Milestones extends StatelessWidget {
-  const Milestones({super.key});
+class MilestonesScreen extends StatelessWidget {
+  const MilestonesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +43,25 @@ class Milestones extends StatelessWidget {
                 ),
               ),
               // SizedBox(height: 30),
-              AchievementCard(title: "8300+", subtitle: "Figma ipsum component variant main layer. Hand.",),
+              AchievementCard(
+                title: "8300+",
+                subtitle: "Figma ipsum component variant main layer. Hand.",
+              ),
               SizedBox(height: 30),
-              AchievementCard(title: "100%", subtitle: "Figma ipsum component variant main layer. Union.",),
+              AchievementCard(
+                title: "100%",
+                subtitle: "Figma ipsum component variant main layer. Union.",
+              ),
               SizedBox(height: 30),
-              AchievementCard(title: "3.5K", subtitle: "Figma ipsum component variant main layer.",),
+              AchievementCard(
+                title: "3.5K",
+                subtitle: "Figma ipsum component variant main layer.",
+              ),
               SizedBox(height: 30),
-              AchievementCard(title: "240+", subtitle: "Figma ipsum component variant main layer.",),
+              AchievementCard(
+                title: "240+",
+                subtitle: "Figma ipsum component variant main layer.",
+              ),
               SizedBox(height: 30),
             ],
           ),
@@ -58,4 +70,3 @@ class Milestones extends StatelessWidget {
     );
   }
 }
-
