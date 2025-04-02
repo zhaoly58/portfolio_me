@@ -35,6 +35,7 @@ class ServiceCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+
               SizedBox(height: 10),
               Text(
                 "$subTitle",
