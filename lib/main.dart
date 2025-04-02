@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-//import 'package:portfolio_me/contact_me_screen.dart';
 import 'package:portfolio_me/testimonials_screen.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +34,6 @@ class MyApp extends StatelessWidget {
       ),
 
       home: TestimonialsScreen(),
-
     );
   }
 }
