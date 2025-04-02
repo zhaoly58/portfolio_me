@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_me/customWidget/input_field.dart';
+import 'package:portfolio_me/customWidget/round_social_button.dart';
 
 class ContactMeScreen extends StatefulWidget {
   const ContactMeScreen({super.key});
@@ -242,6 +243,70 @@ class _ContactMeScreenState extends State<ContactMeScreen> {
                     ),
                   ),
                 ),
+              ),
+
+              Column(
+                children: [
+                  SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Image.asset(
+                          "assets/icon/logo-blue.png",
+                          width: 36,
+                          height: 36,
+                        ),
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        "AeroVision",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 15),
+                  Column(
+                    children: [
+                      Text(
+                        "© Copyright 2023. All Rights Reserved.",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "FOLLOW US: ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      RoundSocialButton(iconPath: "assets/icon/facebook.png"),
+                      SizedBox(width: 8),
+                      RoundSocialButton(iconPath: "assets/icon/twitter.png"),
+                      SizedBox(width: 8),
+                      RoundSocialButton(iconPath: "assets/icon/linkedin.png"),
+                      SizedBox(width: 8),
+                      RoundSocialButton(iconPath: "assets/icon/email.png"),
+                    ],
+                  ),
+                  SizedBox(height: 30),
+                ],
               ),
             ],
           ),

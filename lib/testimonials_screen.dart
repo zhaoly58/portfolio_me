@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:portfolio_me/customWidget/review_card.dart';
+
 
 class TestimonialsScreen extends StatefulWidget {
   const TestimonialsScreen({super.key});
@@ -15,20 +17,25 @@ class _TestimonialsScreenState extends State<TestimonialsScreen> {
 
     final List<Map<String, dynamic>> reviewContent = [
       {
+
         "photo": "people1.png",
         "reviewBody":
             "Lorem ipsum dolor sit amet consectetur. Nibh porttitor aliquet tellus eget egestas. Enim ultrices dictumst tortor in eget neque vestibulum potenti tempus",
+
         "name": "Savannah Nguyen",
         "workTitle": "President of Sales",
       },
       {
+
         "photo": "people2.png",
         "reviewBody":
             "Lorem ipsum dolor sit amet consectetur. Tortor odio purus morbi amet. Donec bibendum et cursus felis sollicitudin vulputate cursus odio. Aliquam cursus eu in aliquam nisl",
+
         "name": "Jenny Wilson",
         "workTitle": "Medical Assistant",
       },
       {
+
         "photo": "people3.png",
         "reviewBody":
             "Lorem ipsum dolor sit amet consectetur. Purus commodo id id ut ultrices aliquam. Sit aliquet leo et lorem dignissim semper donec risus tempor. Varius ultricies dolor ultricies",
@@ -36,10 +43,12 @@ class _TestimonialsScreenState extends State<TestimonialsScreen> {
         "workTitle": "Nursing Assistant",
       },
       {
+
         "photo": "people4.png",
         "reviewBody":
             "Lorem ipsum dolor sit amet consectetur. Eu velit tellus pellentesque tincidunt arcu convallis bibendum. Orci diam leo non molestie dictum orci pulvinar massa",
         "name": "Cameron Williamson",
+
         "workTitle": "Marketing Coordinator",
       },
     ];
@@ -54,6 +63,7 @@ class _TestimonialsScreenState extends State<TestimonialsScreen> {
             color: Color(0xFF0077FF),
           ),
         ),
+
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -114,6 +124,7 @@ class _TestimonialsScreenState extends State<TestimonialsScreen> {
               ),
             ],
           ),
+
         ),
       ),
     );
