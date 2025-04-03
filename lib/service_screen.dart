@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio_me/customWidget/service_card.dart';
 
 class ServiceScreen extends StatefulWidget {
-  const ServiceScreen({super.key});
+  final Map? user;
+  const ServiceScreen({super.key, this.user});
 
   @override
   State<ServiceScreen> createState() => _ServiceScreenState();
@@ -28,6 +30,8 @@ class _ServiceScreenState extends State<ServiceScreen> {
       },
     ];
 
+    // print(widget.user);
+    Map? userData = widget.user;
     final PageController controller = PageController(initialPage: 0);
 
     return Scaffold(
@@ -40,6 +44,12 @@ class _ServiceScreenState extends State<ServiceScreen> {
           ),
         ),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(Icons.arrow_circle_left_sharp),
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(15),
@@ -70,6 +80,9 @@ class _ServiceScreenState extends State<ServiceScreen> {
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 18, letterSpacing: 1.5),
                 ),
+                Text("${userData!["name"]}"),
+                Text("${userData["age"]}"),
+                Text("${userData["company"]}"),
                 SizedBox(height: 25),
                 //Image.asset("assets/icon/navArrow.png", scale: 10),
               ],

@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:go_router/go_router.dart';
+import 'package:portfolio_me/about_screen.dart';
+import 'package:portfolio_me/contact_me_screen.dart';
+import 'package:portfolio_me/home_screen.dart';
+import 'package:portfolio_me/milestones_screen.dart';
+import 'package:portfolio_me/projects_screen.dart';
+import 'package:portfolio_me/screen_path.dart';
+import 'package:portfolio_me/service_screen.dart';
 import 'package:portfolio_me/testimonials_screen.dart';
 
 void main() {
@@ -12,7 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -34,7 +41,54 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
 
-      home: TestimonialsScreen(),
+      //home: TestimonialsScreen(),
+      routerConfig: GoRouter(
+        routes: [
+          GoRoute(
+            path: ScreenPath.homeScreen,
+            builder: (BuildContext context, GoRouterState state) {
+              return HomeScreen();
+            },
+          ),
+          GoRoute(
+            path: ScreenPath.serviceScreen,
+            builder: (BuildContext context, GoRouterState state) {
+              final user = state.extra as Map;
+              return ServiceScreen(user: user);
+            },
+          ),
+          GoRoute(
+            path: ScreenPath.testimonialsScreen,
+            builder: (BuildContext context, GoRouterState state) {
+              return TestimonialsScreen();
+            },
+          ),
+          GoRoute(
+            path: ScreenPath.aboutScreen,
+            builder: (BuildContext context, GoRouterState state) {
+              return AboutScreen();
+            },
+          ),
+          GoRoute(
+            path: ScreenPath.contactMeScreen,
+            builder: (BuildContext context, GoRouterState state) {
+              return ContactMeScreen();
+            },
+          ),
+          GoRoute(
+            path: ScreenPath.milestonesScreen,
+            builder: (BuildContext context, GoRouterState state) {
+              return MilestonesScreen();
+            },
+          ),
+          GoRoute(
+            path: ScreenPath.projectsScreen,
+            builder: (BuildContext context, GoRouterState state) {
+              return ProjectsScreen();
+            },
+          ),
+        ],
+      ),
     );
   }
 }
