@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:go_router/go_router.dart";
+import "package:portfolio_me/screen_path.dart";
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,11 +38,17 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Welcome to my Portfolio",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Text(
                       "Hi I’m",
-                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Text(
                       "Robert Junior",
@@ -52,11 +60,17 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Text(
                       "Product",
-                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Text(
                       "Designer",
-                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Text(
                       "Collaborating with highly skilled individuals, our agency delivers top-quality services.",
@@ -77,7 +91,16 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push(
+                      ScreenPath.serviceScreen,
+                      extra: {
+                        "name": "Jimmy",
+                        "age": "31",
+                        "company": "CMatrix Corporation",
+                      },
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     minimumSize: Size(double.infinity, 40),
@@ -90,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                   icon: Image.asset("assets/icon/icon-download.png", scale: 25),
                   iconAlignment: IconAlignment.end,
                 ),
-        
+
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                   child: Column(
