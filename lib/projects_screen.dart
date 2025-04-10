@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio_me/customWidget/regular_button.dart';
 
 class ProjectsScreen extends StatelessWidget {
@@ -18,14 +19,19 @@ class ProjectsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Our projects".toUpperCase(),
+          "Our Projects".toUpperCase(),
           style: TextStyle(
-            color: Color(0XFF0078FF),
-            fontSize: 18,
+            color: Color(0xFF0078FF),
             fontWeight: FontWeight.bold,
           ),
         ),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(Icons.arrow_circle_left_sharp),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

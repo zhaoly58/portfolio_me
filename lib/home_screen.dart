@@ -37,7 +37,85 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: false,
-        actions: [Image.asset("assets/icon/menu-02.png", scale: 12)],
+        actions: [
+          Builder(
+            builder: (context) {
+              return InkWell(
+                onTap: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                child: Image.asset("assets/icon/menu-02.png", scale: 12),
+              );
+            },
+          ),
+        ],
+      ),
+      endDrawer: Drawer(
+        child: SafeArea(
+          child: Column(
+            children: [
+              ListTile(
+                title: Text("About me"),
+                leading: Icon(Icons.home),
+                onTap: () {
+                  context.push(
+                    ScreenPath.aboutScreen,
+                    extra: {
+                      "name": "Jimmy",
+                      "age": "31",
+                      "company": "CMatrix Corporation",
+                    },
+                  );
+                },
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text("Service"),
+                leading: Icon(Icons.settings),
+                onTap: () {
+                  context.push(
+                    ScreenPath.serviceScreen,
+                    extra: {
+                      "name": "Jimmy",
+                      "age": "31",
+                      "company": "CMatrix Corporation",
+                    },
+                  );
+                },
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text("Project"),
+                leading: Icon(Icons.production_quantity_limits),
+                onTap: () {
+                  context.push(
+                    ScreenPath.projectsScreen,
+                    extra: {
+                      "name": "Jimmy",
+                      "age": "31",
+                      "company": "CMatrix Corporation",
+                    },
+                  );
+                },
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text("Contact me"),
+                leading: Icon(Icons.phone),
+                onTap: () {
+                  context.push(
+                    ScreenPath.contactMeScreen,
+                    extra: {
+                      "name": "Jimmy",
+                      "age": "31",
+                      "company": "CMatrix Corporation",
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -115,7 +193,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text("Hello Jimmy!"),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text("asdjkasmdasn d"),
+                              Text("asdaskdmaskdmklasmdk;al d"),
+                            ],
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(
+                                  context,
+                                ); // 👈 Dismisses the sheet
+                              },
+                              child: Text("Yes"),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text("Cancel"),
+                            ),
+                          ],
+                          actionsAlignment: MainAxisAlignment.center,
+                        );
+                      },
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     minimumSize: Size(double.infinity, 40),
@@ -127,14 +238,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ElevatedButton.icon(
                   onPressed: () {
-                    context.push(
-                      ScreenPath.serviceScreen,
-                      extra: {
-                        "name": "Jimmy",
-                        "age": "31",
-                        "company": "CMatrix Corporation",
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return Container(
+                          height: 200,
+                          width: double.infinity,
+                          color: Colors.green,
+                          child: Text("Bottom Sheet"),
+                        );
                       },
                     );
+                    // context.push(
+                    //   ScreenPath.serviceScreen,
+                    //   extra: {
+                    //     "name": "Jimmy",
+                    //     "age": "31",
+                    //     "company": "CMatrix Corporation",
+                    //   },
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
