@@ -78,41 +78,31 @@ class AboutScreen extends StatelessWidget {
                     RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-
                         style: TextStyle(
                           fontSize: 50,
                           color: Colors.blue.shade800,
                           fontWeight: FontWeight.bold,
                         ),
                         children: [
-                          TextSpan(
-                            text: "20 Year’s",
-                          ),
-                          TextSpan(
-                            text: "\nExperience",
-                          )
-                        ]
-                      )
+                          TextSpan(text: "20 Year’s"),
+                          TextSpan(text: "\nExperience"),
+                        ],
+                      ),
                     ),
 
                     RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-
                         style: TextStyle(
                           fontSize: 50,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                         children: [
-                          TextSpan(
-                            text: "on Product",
-                          ),
-                          TextSpan(
-                            text: "\nDesign",
-                          )
-                        ]
-                      )
+                          TextSpan(text: "on Product"),
+                          TextSpan(text: "\nDesign"),
+                        ],
+                      ),
                     ),
 
                     RichText(
@@ -187,11 +177,19 @@ class AboutScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
 
-                
-                CustomPercentIndicator(title: "User Experience Design - UI/UX", indicatorWidth: 350,),
-                CustomPercentIndicator(title: "Web&User Interface Design", indicatorWidth: 300,),
-                CustomPercentIndicator(title: "Interaction Design - Animation", indicatorWidth: 270,),
-                
+                CustomPercentIndicator(
+                  title: "User Experience Design - UI/UX",
+                  indicatorWidth: 350,
+                ),
+                CustomPercentIndicator(
+                  title: "Web&User Interface Design",
+                  indicatorWidth: 300,
+                ),
+                CustomPercentIndicator(
+                  title: "Interaction Design - Animation",
+                  indicatorWidth: 270,
+                ),
+
                 // Column(
                 //   crossAxisAlignment: CrossAxisAlignment.start,
                 //   children: [

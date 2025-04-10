@@ -1,9 +1,31 @@
+import "dart:io";
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
+import "package:image_picker/image_picker.dart";
 import "package:portfolio_me/screen_path.dart";
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final ImagePicker imagePicker = ImagePicker();
+
+  File? imageFile;
+
+  Future<void> getImage() async {
+    final XFile? pickImage = await imagePicker.pickImage(
+      source: ImageSource.camera,
+    );
+    if (pickImage != null) {
+      setState(() {
+        imageFile = File(pickImage.path);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +46,25 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                ClipOval(
-                  child: Image.asset(
-                    "assets/image/profile.webp",
-                    fit: BoxFit.cover,
-                    width: 300,
-                    height: 300,
+                GestureDetector(
+                  onTap: () async {
+                    await getImage();
+                  },
+                  child: ClipOval(
+                    child:
+                        imageFile != null
+                            ? Image.file(
+                              imageFile!,
+                              fit: BoxFit.cover,
+                              width: 300,
+                              height: 300,
+                            )
+                            : Image.asset(
+                              "assets/image/profile.webp",
+                              fit: BoxFit.cover,
+                              width: 300,
+                              height: 300,
+                            ),
                   ),
                 ),
                 Column(
