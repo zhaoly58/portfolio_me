@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio_me/customWidget/input_field.dart';
 import 'package:portfolio_me/customWidget/round_social_button.dart';
 
@@ -22,12 +23,18 @@ class _ContactMeScreenState extends State<ContactMeScreen> {
     return Scaffold(
       backgroundColor: Color(0xFF0077FF),
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Text(
-          "contact me".toUpperCase(),
-          style: TextStyle(color: Colors.white),
+          "Contact me",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF0077FF),
+        leading: IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(Icons.arrow_circle_left_sharp),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

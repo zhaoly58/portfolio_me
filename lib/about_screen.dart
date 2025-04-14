@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:go_router/go_router.dart";
 import "package:portfolio_me/customWidget/percent_indicator.dart";
 
 class AboutScreen extends StatelessWidget {
@@ -8,13 +9,20 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset("assets/icon/logo-icon.png", scale: 12),
         title: Text(
-          "Aero Vision",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          "About me".toUpperCase(),
+          style: TextStyle(
+            color: Color(0xFF0078FF),
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        centerTitle: false,
-        actions: [Image.asset("assets/icon/menu-02.png", scale: 12)],
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(Icons.arrow_circle_left_sharp),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

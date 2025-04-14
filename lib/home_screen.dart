@@ -3,6 +3,8 @@ import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:image_picker/image_picker.dart";
 import "package:portfolio_me/screen_path.dart";
+import "package:url_launcher/url_launcher.dart";
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,17 +29,112 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<void> launchURL() async {
+    final Uri url = Uri.parse("https://flutter.dev/");
+    if (!await launchUrl(url)) {
+      throw Exception("Can not open url");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset("assets/icon/logo-icon.png", scale: 12),
+        // leading: InkWell(
+        //   onTap: () {},
+        //   child: Image.asset("assets/icon/logo-icon.png", scale: 12),
+        // ),
+        leading: Tooltip(
+          message: "I'm tooltip!",
+          child: TextButton(
+            onPressed: () {},
+            child: Image.asset("assets/icon/logo-icon.png", scale: 12),
+          ),
+        ),
         title: Text(
           "Aero Vision",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: false,
-        actions: [Image.asset("assets/icon/menu-02.png", scale: 12)],
+        actions: [
+          Builder(
+            builder: (context) {
+              return InkWell(
+                onTap: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                child: Image.asset("assets/icon/menu-02.png", scale: 12),
+              );
+            },
+          ),
+        ],
+      ),
+      endDrawer: Drawer(
+        child: SafeArea(
+          child: Column(
+            children: [
+              ListTile(
+                title: Text("About me"),
+                leading: Icon(Icons.home),
+                onTap: () {
+                  context.push(
+                    ScreenPath.aboutScreen,
+                    extra: {
+                      "name": "Jimmy",
+                      "age": "31",
+                      "company": "CMatrix Corporation",
+                    },
+                  );
+                },
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text("Service"),
+                leading: Icon(Icons.settings),
+                onTap: () {
+                  context.push(
+                    ScreenPath.serviceScreen,
+                    extra: {
+                      "name": "Jimmy",
+                      "age": "31",
+                      "company": "CMatrix Corporation",
+                    },
+                  );
+                },
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text("Project"),
+                leading: Icon(Icons.production_quantity_limits),
+                onTap: () {
+                  context.push(
+                    ScreenPath.projectsScreen,
+                    extra: {
+                      "name": "Jimmy",
+                      "age": "31",
+                      "company": "CMatrix Corporation",
+                    },
+                  );
+                },
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text("Contact me"),
+                leading: Icon(Icons.phone),
+                onTap: () {
+                  context.push(
+                    ScreenPath.contactMeScreen,
+                    extra: {
+                      "name": "Jimmy",
+                      "age": "31",
+                      "company": "CMatrix Corporation",
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -85,19 +182,40 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "Robert Junior",
-                      style: TextStyle(
-                        fontSize: 45,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
+                    Tooltip(
+                      message: "I'm tooltip!",
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Robert Junior",
+                          style: TextStyle(
+                            fontSize: 45,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
+                        ),
                       ),
                     ),
+
                     Text(
                       "Product",
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Tooltip(
+                      message: "Yooo, you found me!",
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Secret button",
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
+                        ),
                       ),
                     ),
                     Text(
@@ -115,7 +233,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text("Hello Jimmy!"),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text("asdjkasmdasn d"),
+                              Text("asdaskdmaskdmklasmdk;al d"),
+                            ],
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(
+                                  context,
+                                ); // 👈 Dismisses the sheet
+                              },
+                              child: Text("Yes"),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text("Cancel"),
+                            ),
+                          ],
+                          actionsAlignment: MainAxisAlignment.center,
+                        );
+                      },
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     minimumSize: Size(double.infinity, 40),
@@ -126,15 +277,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 ElevatedButton.icon(
-                  onPressed: () {
-                    context.push(
-                      ScreenPath.serviceScreen,
-                      extra: {
-                        "name": "Jimmy",
-                        "age": "31",
-                        "company": "CMatrix Corporation",
-                      },
+                  onPressed: () async {
+                    Fluttertoast.showToast(
+                      msg: "Error has been occored",
+                      gravity: ToastGravity.TOP,
+                      backgroundColor: Colors.red,
                     );
+                    // await launchURL();
+                    // showModalBottomSheet(
+                    //   context: context,
+                    //   builder: (context) {
+                    //     return Container(
+                    //       height: 200,
+                    //       width: double.infinity,
+                    //       color: Colors.green,
+                    //       child: Text("Bottom Sheet"),
+                    //     );
+                    //   },
+                    // );
+                    // context.push(
+                    //   ScreenPath.serviceScreen,
+                    //   extra: {
+                    //     "name": "Jimmy",
+                    //     "age": "31",
+                    //     "company": "CMatrix Corporation",
+                    //   },
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
