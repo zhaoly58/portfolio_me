@@ -2,7 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_me/customWidget/input_field.dart';
+import 'package:portfolio_me/customWidget/round_email_button.dart';
 import 'package:portfolio_me/customWidget/round_social_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactMeScreen extends StatefulWidget {
   const ContactMeScreen({super.key});
@@ -12,7 +14,7 @@ class ContactMeScreen extends StatefulWidget {
 }
 
 class _ContactMeScreenState extends State<ContactMeScreen> {
-  final String? facebookUrl = "https://www.facebook.com/login.php/";
+  final String? facebookUrl = "https://www.facebook.com/";
   final String? linkedinUrl = "https://www.linkedin.com/";
   final String? xUrl = "https://x.com/";
 
@@ -21,6 +23,13 @@ class _ContactMeScreenState extends State<ContactMeScreen> {
   TextEditingController helpController = TextEditingController();
 
   bool isChecked = false;
+
+  Future<void> launchURL() async {
+    final Uri url = Uri.parse("https://flutter.dev/");
+    if (!await launchUrl(url)) {
+      throw Exception("Can not open the website");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -309,20 +318,21 @@ class _ContactMeScreenState extends State<ContactMeScreen> {
                       ),
                       RoundSocialButton(
                         iconPath: "assets/icon/facebook.png",
-                        urlDestination: facebookUrl!,
+                        urlDestination: facebookUrl,
                       ),
                       SizedBox(width: 8),
                       RoundSocialButton(
                         iconPath: "assets/icon/twitter.png",
-                        urlDestination: xUrl!,
+                        urlDestination: xUrl,
                       ),
                       SizedBox(width: 8),
                       RoundSocialButton(
                         iconPath: "assets/icon/linkedin.png",
-                        urlDestination: linkedinUrl!,
+                        urlDestination: linkedinUrl,
                       ),
                       SizedBox(width: 8),
                       //RoundSocialButton(iconPath: "assets/icon/email.png"),
+                      RoundEmailButton(iconPath: "assets/icon/email.png"),
                     ],
                   ),
                   SizedBox(height: 30),
