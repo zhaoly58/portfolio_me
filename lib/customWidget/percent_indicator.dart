@@ -31,7 +31,7 @@ class CustomPercentIndicator extends StatelessWidget {
               width: indicatorWidth,
               height: 20,
               decoration: BoxDecoration(
-                color: Colors.blue.shade800,
+                color: Color(0xFF0077FF),
                 borderRadius: BorderRadius.circular(20),
               ),
             ),

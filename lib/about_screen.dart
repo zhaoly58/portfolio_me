@@ -12,7 +12,7 @@ class AboutScreen extends StatelessWidget {
         title: Text(
           "About me".toUpperCase(),
           style: TextStyle(
-            color: Color(0xFF0078FF),
+            color: Color(0xFF0077FF),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -49,7 +49,7 @@ class AboutScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade800,
+                        color: Color(0xFF0077FF),
                       ),
                     ),
                     // Text(
@@ -88,7 +88,7 @@ class AboutScreen extends StatelessWidget {
                       text: TextSpan(
                         style: TextStyle(
                           fontSize: 50,
-                          color: Colors.blue.shade800,
+                          color: Color(0xFF0077FF),
                           fontWeight: FontWeight.bold,
                         ),
                         children: [
@@ -149,7 +149,7 @@ class AboutScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade800,
+                    backgroundColor: Color(0xFF0077FF),
                     minimumSize: Size(double.infinity, 40),
                   ),
                   child: Text(
@@ -163,11 +163,11 @@ class AboutScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     minimumSize: Size(double.infinity, 40),
-                    side: BorderSide(color: Colors.blue.shade800),
+                    side: BorderSide(color: Color(0xFF0077FF)),
                   ),
                   child: Text(
                     "Awards",
-                    style: TextStyle(color: Colors.blue.shade800, fontSize: 20),
+                    style: TextStyle(color: Color(0xFF0077FF), fontSize: 20),
                   ),
                 ),
                 SizedBox(height: 10),
@@ -176,11 +176,11 @@ class AboutScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     minimumSize: Size(double.infinity, 40),
-                    side: BorderSide(color: Colors.blue.shade800),
+                    side: BorderSide(color: Color(0xFF0077FF)),
                   ),
                   child: Text(
                     "Education",
-                    style: TextStyle(color: Colors.blue.shade800, fontSize: 20),
+                    style: TextStyle(color: Color(0xFF0077FF), fontSize: 20),
                   ),
                 ),
                 SizedBox(height: 20),

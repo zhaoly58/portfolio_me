@@ -12,6 +12,10 @@ class ContactMeScreen extends StatefulWidget {
 }
 
 class _ContactMeScreenState extends State<ContactMeScreen> {
+  final String? facebookUrl = "https://www.facebook.com/login.php/";
+  final String? linkedinUrl = "https://www.linkedin.com/";
+  final String? xUrl = "https://x.com/";
+
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController helpController = TextEditingController();
@@ -25,7 +29,7 @@ class _ContactMeScreenState extends State<ContactMeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-          "Contact me",
+          "Contact me".toUpperCase(),
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -303,13 +307,22 @@ class _ContactMeScreenState extends State<ContactMeScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      RoundSocialButton(iconPath: "assets/icon/facebook.png"),
+                      RoundSocialButton(
+                        iconPath: "assets/icon/facebook.png",
+                        urlDestination: facebookUrl!,
+                      ),
                       SizedBox(width: 8),
-                      RoundSocialButton(iconPath: "assets/icon/twitter.png"),
+                      RoundSocialButton(
+                        iconPath: "assets/icon/twitter.png",
+                        urlDestination: xUrl!,
+                      ),
                       SizedBox(width: 8),
-                      RoundSocialButton(iconPath: "assets/icon/linkedin.png"),
+                      RoundSocialButton(
+                        iconPath: "assets/icon/linkedin.png",
+                        urlDestination: linkedinUrl!,
+                      ),
                       SizedBox(width: 8),
-                      RoundSocialButton(iconPath: "assets/icon/email.png"),
+                      //RoundSocialButton(iconPath: "assets/icon/email.png"),
                     ],
                   ),
                   SizedBox(height: 30),

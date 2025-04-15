@@ -8,12 +8,13 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
         print("clicked service card");
       },
       child: Container(
-        width: double.infinity,
+        width: width - 40,
         //height: 366,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),

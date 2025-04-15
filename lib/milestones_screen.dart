@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio_me/customWidget/achievement_card.dart';
 
 class MilestonesScreen extends StatelessWidget {
@@ -12,14 +13,20 @@ class MilestonesScreen extends StatelessWidget {
         title: Text(
           "Our Milestones".toUpperCase(),
           style: TextStyle(
-            letterSpacing: 2.5,
-            fontSize: 18,
+            // letterSpacing: 2.5,
+            // fontSize: 18,
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
         backgroundColor: Color(0xFF0077FF),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(Icons.arrow_circle_left_sharp),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

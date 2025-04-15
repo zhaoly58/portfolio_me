@@ -2,9 +2,9 @@ import "dart:io";
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:image_picker/image_picker.dart";
+import "package:portfolio_me/customWidget/side_menu_list.dart";
 import "package:portfolio_me/screen_path.dart";
 import "package:url_launcher/url_launcher.dart";
-import 'package:fluttertoast/fluttertoast.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> launchURL() async {
     final Uri url = Uri.parse("https://flutter.dev/");
     if (!await launchUrl(url)) {
-      throw Exception("Can not open url");
+      throw Exception("Can not open the website");
     }
   }
 
@@ -73,64 +73,40 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              ListTile(
-                title: Text("About me"),
-                leading: Icon(Icons.home),
-                onTap: () {
-                  context.push(
-                    ScreenPath.aboutScreen,
-                    extra: {
-                      "name": "Jimmy",
-                      "age": "31",
-                      "company": "CMatrix Corporation",
-                    },
-                  );
-                },
+              SideMenuList(
+                title: "About Me",
+                titleIcon: Icon(Icons.home_filled),
+                pagePath: ScreenPath.aboutScreen,
               ),
               Divider(height: 0),
-              ListTile(
-                title: Text("Service"),
-                leading: Icon(Icons.settings),
-                onTap: () {
-                  context.push(
-                    ScreenPath.serviceScreen,
-                    extra: {
-                      "name": "Jimmy",
-                      "age": "31",
-                      "company": "CMatrix Corporation",
-                    },
-                  );
-                },
+              SideMenuList(
+                title: "Projects",
+                titleIcon: Icon(Icons.display_settings),
+                pagePath: ScreenPath.projectsScreen,
               ),
               Divider(height: 0),
-              ListTile(
-                title: Text("Project"),
-                leading: Icon(Icons.production_quantity_limits),
-                onTap: () {
-                  context.push(
-                    ScreenPath.projectsScreen,
-                    extra: {
-                      "name": "Jimmy",
-                      "age": "31",
-                      "company": "CMatrix Corporation",
-                    },
-                  );
-                },
+              SideMenuList(
+                title: "Milestones",
+                titleIcon: Icon(Icons.point_of_sale),
+                pagePath: ScreenPath.milestonesScreen,
               ),
               Divider(height: 0),
-              ListTile(
-                title: Text("Contact me"),
-                leading: Icon(Icons.phone),
-                onTap: () {
-                  context.push(
-                    ScreenPath.contactMeScreen,
-                    extra: {
-                      "name": "Jimmy",
-                      "age": "31",
-                      "company": "CMatrix Corporation",
-                    },
-                  );
-                },
+              SideMenuList(
+                title: "Testimonials",
+                titleIcon: Icon(Icons.feedback),
+                pagePath: ScreenPath.testimonialsScreen,
+              ),
+              Divider(height: 0),
+              SideMenuList(
+                title: "Service",
+                titleIcon: Icon(Icons.room_service),
+                pagePath: ScreenPath.serviceScreen,
+              ),
+              Divider(height: 0),
+              SideMenuList(
+                title: "Contact Me",
+                titleIcon: Icon(Icons.call),
+                pagePath: ScreenPath.contactMeScreen,
               ),
             ],
           ),
@@ -168,122 +144,133 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      "Welcome to my Portfolio",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Hi I’m",
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Tooltip(
-                      message: "I'm tooltip!",
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Robert Junior",
-                          style: TextStyle(
-                            fontSize: 45,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                          ),
+                    SizedBox(height: 15),
+
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black, // Default color
                         ),
+                        children: [
+                          TextSpan(
+                            text: "Welcome to my Portfolio\n",
+                            style: TextStyle(fontSize: 20),
+                          ),
+
+                          TextSpan(
+                            text: "Hi I’m\n",
+                            style: TextStyle(fontSize: 50, height: 1.5),
+                          ),
+                          // WidgetSpan(
+                          //   child: Tooltip(
+                          //     message: "I'm tooltip!",
+                          //     child: GestureDetector(
+                          //       onTap: () {
+                          //         // Your action here
+                          //       },
+                          //       child: Text(
+                          //         "Robert Junior",
+                          //         style: TextStyle(
+                          //           fontSize: 50,
+                          //           fontWeight: FontWeight.bold,
+                          //           color: Color(0xFF0077FF),
+                          //           height: 1,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          TextSpan(
+                            text: "Robert Junior",
+                            style: TextStyle(
+                              fontSize: 50,
+                              height: 1,
+                              color: Color(0xFF0077FF),
+                            ),
+                          ),
+                          TextSpan(
+                            text: "\nProduct\nDesigner",
+                            style: TextStyle(fontSize: 50, height: 1),
+                          ),
+                        ],
                       ),
                     ),
 
-                    Text(
-                      "Product",
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Tooltip(
-                      message: "Yooo, you found me!",
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Secret button",
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "Designer",
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    SizedBox(height: 15),
                     Text(
                       "Collaborating with highly skilled individuals, our agency delivers top-quality services.",
-                      style: TextStyle(fontSize: 25),
+                      style: TextStyle(fontSize: 20),
                       textAlign: TextAlign.center,
                     ),
+                    SizedBox(height: 30),
                   ],
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text("Hello Jimmy!"),
-                          content: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text("asdjkasmdasn d"),
-                              Text("asdaskdmaskdmklasmdk;al d"),
-                            ],
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(
-                                  context,
-                                ); // 👈 Dismisses the sheet
-                              },
-                              child: Text("Yes"),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: Text("Cancel"),
-                            ),
-                          ],
-                          actionsAlignment: MainAxisAlignment.center,
-                        );
-                      },
+                    context.push(
+                      ScreenPath.contactMeScreen,
+                      // extra: {
+                      //   "name": "Jimmy",
+                      //   "age": "31",
+                      //   "company": "CMatrix Corporation",
+                      // },
                     );
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (context) {
+                    //     return AlertDialog(
+                    //       title: Text("Hello Jimmy!"),
+                    //       content: Column(
+                    //         mainAxisSize: MainAxisSize.min,
+                    //         children: [
+                    //           Text("asdjkasmdasn d"),
+                    //           Text("asdaskdmaskdmklasmdk;al d"),
+                    //         ],
+                    //       ),
+                    //       actions: [
+                    //         TextButton(
+                    //           onPressed: () {
+                    //             Navigator.pop(
+                    //               context,
+                    //             ); // 👈 Dismisses the sheet
+                    //           },
+                    //           child: Text("Yes"),
+                    //         ),
+                    //         TextButton(
+                    //           onPressed: () {
+                    //             Navigator.pop(context);
+                    //           },
+                    //           child: Text("Cancel"),
+                    //         ),
+                    //       ],
+                    //       actionsAlignment: MainAxisAlignment.center,
+                    //     );
+                    //   },
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF0077FF),
                     minimumSize: Size(double.infinity, 40),
                   ),
                   child: Text(
                     "Hire Me!",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
                 ElevatedButton.icon(
                   onPressed: () async {
-                    Fluttertoast.showToast(
-                      msg: "Error has been occored",
-                      gravity: ToastGravity.TOP,
-                      backgroundColor: Colors.red,
-                    );
-                    // await launchURL();
+                    // Fluttertoast.showToast(
+                    //   msg: "Error occurred",
+                    //   gravity: ToastGravity.TOP,
+                    //   backgroundColor: Colors.red,
+                    // );
+                    await launchURL();
                     // showModalBottomSheet(
                     //   context: context,
                     //   builder: (context) {
@@ -307,11 +294,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     minimumSize: Size(double.infinity, 40),
-                    side: BorderSide(color: Colors.blue),
+                    side: BorderSide(color: Color(0xFF0077FF)),
                   ),
                   label: Text(
                     "Download CV",
-                    style: TextStyle(fontSize: 20, color: Colors.blue),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF0077FF),
+                    ),
                   ),
                   icon: Image.asset("assets/icon/icon-download.png", scale: 25),
                   iconAlignment: IconAlignment.end,

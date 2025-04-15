@@ -53,8 +53,14 @@ class MyApp extends StatelessWidget {
           GoRoute(
             path: ScreenPath.serviceScreen,
             builder: (BuildContext context, GoRouterState state) {
-              final user = state.extra as Map;
-              return ServiceScreen(user: user);
+              /*
+              the {extra} from home_screen was removed, therefore it cannot be passed at here.
+              */
+
+              // final user = state.extra as Map;
+              // return ServiceScreen(user: user);
+
+              return ServiceScreen();
             },
           ),
           GoRoute(

@@ -51,11 +51,11 @@ class _ServiceScreenState extends State<ServiceScreen> {
           icon: Icon(Icons.arrow_circle_left_sharp),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(15),
-        child: Column(
-          children: [
-            Column(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
               children: [
                 RichText(
                   textAlign: TextAlign.center,
@@ -87,7 +87,10 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 //Image.asset("assets/icon/navArrow.png", scale: 10),
               ],
             ),
-            Row(
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
@@ -110,14 +113,18 @@ class _ServiceScreenState extends State<ServiceScreen> {
                 ),
               ],
             ),
+          ),
 
-            SizedBox(height: 30),
+          SizedBox(height: 30),
 
-            SizedBox(
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: SizedBox(
               height: 366,
-              child: PageView.builder(
+              child: ListView.separated(
                 itemCount: serviceContent.length,
                 controller: controller,
+                // reverse: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return ServiceCard(
@@ -125,10 +132,11 @@ class _ServiceScreenState extends State<ServiceScreen> {
                     subTitle: "${serviceContent[index]["subTitle"]}",
                   );
                 },
+                separatorBuilder: (context, index) => SizedBox(width: 10),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
